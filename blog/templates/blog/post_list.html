@@ -2,25 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>FIRST BLOG PYTHON</title>
+    <title>BLOG PYTHON</title>
   </head>
   <body>
-    <h1>ESME...</h1>
+    <h1>❤</h1>
     <div>
-      <h1><a href="">Django Girls Blog</a></h1>
+      <h1><a href="">Django ⚡ Blog</a></h1>
     </div>
 
-    <div>
-        <p>published: 14.06.2014, 12:14</p>
-        <h2><a href="">My first post</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </div>
+    <!--{{ posts }}
+          1-estas lineas solo mostraran la lista 'en bruto'
+    {{ posts }}-->
 
-    <div>
-        <p>published: 14.06.2014, 12:14</p>
-        <h2><a href="">My second post</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-    </div>
+    <!--
+    {% for post in posts %}
+        {{ post }}
+    {% endfor %}
+    2-para mostrar la lista de posts de manera mas amigable o legibe, usamos un for
+-->
+
+<!--Ahora para darle un poquito de formato mezclo html y template tags (que es lo que usamos anteriormente)-->
+    {% for post in posts %} <!--lo que esta dentro de este bloque se va a repetir para cada objeto en la lista-->
+        <div>
+          <h1><a href="">{{ post.title }}</a></h1>
+          <p><strong>published: {{ post.published_date }}</strong></p>
+          <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
 
   </body>
 </html>

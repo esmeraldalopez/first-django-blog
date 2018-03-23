@@ -11,5 +11,8 @@ urlpatterns = [
      #significa que debe uno o mas digitos, ES DECIR
      #http://127.0.0.1:8000/post// no es correcto
      #http://127.0.0.1:8000/post/1234567890/ SI ES CORRECTO
+    url(r'^post/new/$', views.post_new, name='post_new'),
+
+    url(r'^post/(?P<pk>[0-9]+)/edit/$', views.post_edit, name='post_edit'),
 ]
 #URL para el view post_detail http://127.0.0.1:8000/post/1/

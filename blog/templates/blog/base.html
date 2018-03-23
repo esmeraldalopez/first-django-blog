@@ -1,0 +1,58 @@
+{%load staticfiles %} <!--carga de ficheros estaticos: imagenes, css... -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <title>BLOG PYTHON</title>
+  </head>
+  <body>
+    <div class="page-header">
+      <h1><a href="">Django ❤ Blog</a></h1>
+    </div>
+
+    <!--{{ posts }}
+          1-estas lineas solo mostraran la lista 'en bruto'
+    {{ posts }}-->
+
+    <!--
+    {% for post in posts %}
+        {{ post }}
+    {% endfor %}
+    2-para mostrar la lista de posts de manera mas amigable o legibe, usamos un for
+-->
+
+<!--Ahora para darle un poquito de formato mezclo html y template tags (que es lo que usamos anteriormente)-->
+    <!--lo que esta dentro de este bloque se va a repetir para cada objeto en la lista-->
+    <!--<div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <div class="date">
+                            {{ post.published_date }}
+                        </div>
+                        <h1><a href="">{{ post.title }}</a></h1>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>-->
+    <!-- el div content container se reemplaza por la sig lineas para convertirlo en un template tag, para poder inserta html en este bloque y otras plantillas que extiendan a base-->
+    <div class="content container">
+      <div class="row">
+        <div class="col-md-8">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
